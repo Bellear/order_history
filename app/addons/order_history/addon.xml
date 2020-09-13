@@ -1,0 +1,21 @@
+<addon scheme="3.0">
+    <id>order_history</id>
+    <name>История заказов</name>
+    <description>Модуль для CS-Cart, который добавляет таблицу, с отображением двух последних статусов заказов</description>
+    <status>active</status>
+    <default_language>ru</default_language>
+
+
+    <queries>
+        <item>ALTER TABLE `?:orders` ADD `old_status` char(1) NOT NULL default ''</item>
+        <item for="uninstall">ALTER TABLE  `?:orders` DROP `old_status`</item>
+        <item>ALTER TABLE `?:orders` ADD `time_status_change` int(11) NOT NULL default '0'</item>
+        <item for="uninstall">ALTER TABLE  `?:orders` DROP `time_status_change`</item>
+        <item>ALTER TABLE `?:orders` ADD `user_changed_status` int(11) NOT NULL default '0'</item>
+        <item for="uninstall">ALTER TABLE  `?:orders` DROP `user_changed_status`</item>
+        <item>ALTER TABLE `?:orders` ADD `ch_firstname` varchar(32) NOT NULL default ''</item>
+        <item for="uninstall">ALTER TABLE  `?:orders` DROP `ch_firstname`</item>
+        <item>ALTER TABLE `?:orders` ADD `ch_lastname` varchar(32) NOT NULL default ''</item>
+        <item for="uninstall">ALTER TABLE  `?:orders` DROP `ch_lastname`</item>
+    </queries>
+</addon>
